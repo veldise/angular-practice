@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+    <title>Angular Practice</title>
+
+    <style>
+      .item:hover {
+        background: #ccc;
+        cursor: pointer;
+      }
+    </style>
+
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      <div id="header">
+        <h2>Angular Practice</h2>
+      </div>
+
+      <div id="container">
+        <div ng-controller="FriendCtrl">
+          I have {{friends.length}} friends. They are:
+          <input type="search" ng-model="q" placeholder="filter friends..." />
+          <ul>
+            <li ng-repeat="friend in friends | filter:q as results", ng-click="greet(friend)">
+              <span class="item">
+                [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+              </span>
+            </li>
+            <li ng-if="results.length == 0">
+              <strong>No results found...</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="./05.ctrl.js"></script>
+  </body>
+</html>

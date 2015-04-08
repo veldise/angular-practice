@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+    <title>Angular Practice</title>
+
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      <div id="header">
+        <h2>Angular Practice</h2>
+      </div>
+
+      <div id="container" ng-app="controllerAsExample">
+        <div ng-controller="SettingsCtrl as settings">
+          Name: <input type="text" ng-model="settings.name"/>
+          [ <a href="" ng-click="settings.greet()">greet</a> ]<br/>
+          Contact:
+          <ul>
+            <li ng-repeat="contact in settings.contacts">
+              <select ng-model="contact.type">
+                 <option>phone</option>
+                 <option>email</option>
+              </select>
+              <input type="text" ng-model="contact.value"/>
+              [ <a href="" ng-click="settings.clearContact(contact)">clear</a>
+              | <a href="" ng-click="settings.removeContact(contact)">X</a> ]
+            </li>
+            <li>[ <a href="" ng-click="settings.addContact()">add</a> ]</li>
+         </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="./06.settings_ctrl.js"></script>
+  </body>
+</html>
