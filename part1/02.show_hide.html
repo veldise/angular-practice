@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+    <title>Angular Practice</title>
+
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      <div id="header">
+        <h2>Angular Practice</h2>
+      </div>
+
+      <div id="container">
+        Click me: <input type="checkbox" ng-model="checked"><br/>
+        <div>
+          Show:
+          <div ng-show="checked">
+            <h3> I show up when your checkbox is checked. </h3>
+          </div>
+        </div>
+        <div>
+          Hide:
+          <div ng-hide="checked">
+            <h3> I hide when your checkbox is checked. </h3>
+          </div>
+        </div>
+        <div>
+          IF:
+          <div ng-if="checked">
+            <h3> I created when your checkbox is checked. </h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+    <title>Angular Practice</title>
+
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      <div id="header">
+        <h2>Angular Practice</h2>
+      </div>
+
+      <div id="container">
+        <div>
+          <button ng-click="count = count + 1" ng-init="count=0">
+            Increment
+          </button>
+          <span>
+            count: {{count}}
+          </span>
+        </div>
+
+        <hr>
+
+        <div>
+          <button ng-dblclick="count = count + 1" ng-init="count=0">
+            Increment (on double click)
+          </button>
+          count: {{count}}
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

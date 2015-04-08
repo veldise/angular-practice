@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+    <title>Angular Practice</title>
+
+    <style>
+      span { color: black; }
+
+      .strike { text-decoration: line-through; }
+      .bold { font-weight: bold; }
+      .red { color: red; }
+      .orange { color: orange; }
+    </style>
+
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      <div id="header">
+        <h2>Angular Practice</h2>
+      </div>
+
+      <div id="container">
+        <div>
+          <input type="button" value="set color" ng-click="myStyle={color:'red'}">
+          <input type="button" value="set background" ng-click="myStyle={'background-color':'blue'}">
+          <input type="button" value="clear" ng-click="myStyle={}">
+          <br/>
+          <span ng-style="myStyle">Sample Text</span>
+          <pre>myStyle={{myStyle}}</pre>
+        </div>
+
+        <hr>
+
+        <div>
+          <p ng-class="{strike: deleted, bold: important, red: error}">Map Syntax Example</p>
+          <input type="checkbox" ng-model="deleted"> deleted (apply "strike" class)<br>
+          <input type="checkbox" ng-model="important"> important (apply "bold" class)<br>
+          <input type="checkbox" ng-model="error"> error (apply "red" class)
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
