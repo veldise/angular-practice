@@ -19,15 +19,15 @@
       </div>
 
       <div id="container" ng-controller="MainCtrl">
-        <p>name: {{name}}</p>
+        <p>name: {{name}} , {{num}}</p>
         <input type="button" value="emit name" ng-click="emitName()"/>
 
         <div ng-controller="Child1Ctrl">
-          <p>name: {{name}}</p>
+          <p>name: {{name}} , {{num}}</p>
           <input type="button" value="emit name" ng-click="emitName()"/>
         </div>
         <div ng-controller="Child2Ctrl">
-          <p>name: {{name}}</p>
+          <p>name: {{name}} , {{num}}</p>
           <input type="button" value="emit name" ng-click="emitName()"/>
         </div>
       </div>

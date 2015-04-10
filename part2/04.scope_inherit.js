@@ -20,7 +20,7 @@
     function Child2Ctrl($scope) {
         $scope.timeOfDay = 'evening';
 
-        $scope.info.name = 'Mattie';
+        $scope.info.name = 'Nikki';
     }
     Child2Ctrl.$inject = ['$scope'];
     /**
