@@ -33,6 +33,7 @@
           <input type="button" value="set background" ng-click="myStyle={'background-color':'blue'}">
           <input type="button" value="clear" ng-click="myStyle={}">
           <br/>
+
           <span ng-style="myStyle">Sample Text</span>
           <pre>myStyle={{myStyle}}</pre>
         </div>
@@ -41,6 +42,7 @@
 
         <div>
           <p ng-class="{strike: deleted, bold: important, red: error}">Map Syntax Example</p>
+
           <input type="checkbox" ng-model="deleted"> deleted (apply "strike" class)<br>
           <input type="checkbox" ng-model="important"> important (apply "bold" class)<br>
           <input type="checkbox" ng-model="error"> error (apply "red" class)
