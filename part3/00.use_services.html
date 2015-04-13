@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+    <title>Angular Practice</title>
+
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      <div id="header">
+        <h2>Angular Practice</h2>
+      </div>
+
+      <div id="container" ng-controller="MainCtrl">
+        <label>count: {{count}}</label>
+        <label>now: {{nowTime | date:'yyyy-MM-dd HH:mm:ss'}}</label>
+
+        <hr>
+
+        <input type="button" value="Get Friends" ng-click="getData()"/>
+        <input type="button" value="Sort Age" ng-click="sortAge()"/>
+        <h3>resource url: {{resourceUrl}}</h3>
+        <pre>{{data | json}}</pre>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="./00.use_services.js"></script>
+  </body>
+</html>
