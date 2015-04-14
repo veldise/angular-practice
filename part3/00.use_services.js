@@ -5,6 +5,8 @@
     */
     function MainCtrl($scope, $interval, $log, $http, $filter) {
         $scope.count = 0;
+        // $timeout = setTimeout + $apply + try~catch
+        // $interval = setInterval + $apply
         $interval(function () {
             $scope.count++;
             $scope.nowTime = (new Date()).getTime();
