@@ -4,6 +4,10 @@
 // 4. ‘filter’ filter를 사용하여 gender: ‘girl’인 것들만 출력
 // 5. age가 25 이상인 것들에 대해 color: red 설정
 (function (angular) {
+    'use strict';
+    /**
+     *
+     */
     function MainCtrl($scope, $http) {
         /**
         *   init (load data)
