@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+    <title>Angular Practice</title>
+
+    <style type="text/css">
+    </style>
+
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      <div id="header">
+        <h2>Angular Practice</h2>
+      </div>
+
+      <div id="container" ng-controller="MainCtrl">
+
+        <my-directive></my-directive>
+
+        <div my-directive="exp"></div>
+
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="./01.restrict.js"></script>
+  </body>
+</html>

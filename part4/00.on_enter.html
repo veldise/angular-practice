@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+    <title>Angular Practice</title>
+
+    <style type="text/css">
+      input[type=text] {
+        width: 300px;
+      }
+      pre {
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+    </style>
+
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      <div id="header">
+        <h2>Angular Practice</h2>
+      </div>
+
+      <div id="container" ng-controller="MainCtrl">
+        <label>press enter: </label>
+        <input type="text" on-enter="addCount()"/>
+        <pre>count: {{count}}</pre>
+
+        <hr>
+
+        <label>request: </label>
+        <input type="text" ng-model="reqUrl" on-enter="loadData()"/>
+        <pre ng-hide="data">loading...</pre>
+        <pre ng-show="data">{{data | json}}</pre>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="./00.on_enter.js"></script>
+  </body>
+</html>
