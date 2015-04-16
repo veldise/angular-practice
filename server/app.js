@@ -37,6 +37,7 @@ app.get('/', routes.index);
 
 app.get('/friends', user.friends);
 app.get('/phones', user.phones);
+app.get('/us500', user.us500);
 app.get('/phones/:phoneId.json', user.phone);
 
 http.createServer(app).listen(app.get('port'), function(){
