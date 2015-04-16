@@ -7,7 +7,7 @@
         /**
         *   init
         */
-        var domain = 'http://localhost:3000';
+        var domain = 'http://192.168.0.165:3000';
 
         $http.get(domain + '/us500')
             .success(function (data) {
