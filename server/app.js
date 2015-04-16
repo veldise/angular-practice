@@ -40,6 +40,14 @@ app.get('/phones', user.phones);
 app.get('/us500', user.us500);
 app.get('/phones/:phoneId.json', user.phone);
 
+var todos = require('./routes/todos');
+
+app.get('/todos/:name', todos.read);
+app.post('/todos/:name', todos.create);
+app.put('/todos/:name/:id', todos.update);
+app.del('/todos/:name/:id', todos.remove);
+app.del('/todos/all', todos.removeAll);
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
