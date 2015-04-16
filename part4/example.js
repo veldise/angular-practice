@@ -30,10 +30,10 @@
     function phoneItem() {
         var template = [
             '<div class="phone-item">',
-                '<span>Name: <a href="#">{{}}</a></span>', // company_name
-                '<span>Phone: <a href="#">{{}}</a></span>', // phone1
-                '<button type="button" ng-click="">Modify</button>',
-                '<button type="button" ng-click="dial({})">Call</button>', // phone 1
+                '<span>Name: <a href="#">{{people.company_name}}</a></span>', // company_name
+                '<span>Phone: <a href="#">{{people.phone1}}</a></span>', // phone1
+                '<button type="button" ng-click="modify(people)" >Modify</button>',
+                '<button type="button" ng-click="dial({ phone: people.phone1 })" >Call</button>',
             '</div>',
         ].join('\n');
 
@@ -41,13 +41,17 @@
         // };
 
         var link = function (scope, element, attrs/*, ctrl*/) {
-            // var newPhoneNum = prompt('input new phone number:');
+            scope.modify = function (people) {
+                people.phone1 = prompt('input new phone number:');
+            };
         };
 
         return {
             restrict: 'E',
             replace: true,
             scope: { // isolated
+                people: '=model',
+                dial: '&'
             },
             template: template,
             // controller: controller,
