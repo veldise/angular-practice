@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+    <title>Angular Practice</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/todo.css">
+
+    <script type="text/javascript" src="../lib/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../lib/lodash.min.js"></script>
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+
+    <script type="text/javascript" src="./js/controllers.js"></script>
+    <script type="text/javascript" src="./js/services.js"></script>
+    <script type="text/javascript" src="./js/directives.js"></script>
+    <script type="text/javascript" src="./js/filters.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+</head>
+
+<body ng-app="todoApp">
+    <div id="todoapp" ng-controller="TodoCtrl">
+        <header>
+            <h1>Todos by Angular.js</h1>
+            <input id="new-todo" type="text" size="30" placeholder="Do I need to do?" />
+        </header>
+
+        <section id="main" style="display: block;">
+            <div>
+                <input id="toggle-all" type="checkbox"/>
+                <label for="toggle-all">Mark all as complete</label>
+            </div>
+            <ul id="todo-list" class="unstyled">
+                <li>
+                    <div class="view">
+                        <input type="checkbox" />
+                        <span class="done-">todo text</span>
+                    </div>
+                    <input class="edit" type="text" value="todo text" />
+                </li>
+                <li>
+                    <div class="view">
+                        <input type="checkbox" checked="checked" />
+                        <span class="done-true">done text</span>
+                    </div>
+                    <input class="edit" type="text" value="done text" />
+                </li>
+                <li class="editing">
+                    <div class="view">
+                        <input type="checkbox" />
+                        <span class="done-">modify text</span>
+                    </div>
+                    <input class="edit" type="text" value="modify text" />
+                </li>
+            </ul>
+        </section>
+
+        <footer style="display: block;">
+            <div class="todo-count">0 of 0 remaining</div>
+            <a id="clear-completed">
+                Clear <span>0 item</span>.
+            </a>
+        </footer>
+    </div>
+</body>
+
+</html>

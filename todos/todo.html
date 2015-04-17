@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+    <title>Angular Practice</title>
+
+    <link rel="stylesheet" type="text/css" href="./todo.css">
+
+    <script type="text/javascript" src="../lib/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../lib/lodash.min.js"></script>
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+
+    <script src="./todo.js"></script>
+</head>
+
+<body ng-app="todoApp">
+    <div id="todoapp" ng-controller="TodoCtrl">
+        <header>
+            <h1>Todos by Angular.js</h1>
+            <input id="new-todo" type="text" size="30" placeholder="Do I need to do?" ng-model="todoText" ng-keyup="addTodo($event)" />
+        </header>
+
+        <section id="main" style="display: block;">
+            <div ng-show="isTodo()">
+                <input id="toggle-all" type="checkbox" ng-model="markAll" ng-click="toggleMarkAll()" />
+                <label for="toggle-all">Mark all as complete</label>
+            </div>
+            <ul id="todo-list" class="unstyled">
+                <li ng-repeat="todo in todos" ng-dblclick="toggleEditMode($event)">
+                    <div class="view" ng-keyup="editTodo($event)">
+                        <input type="checkbox" ng-model="todo.done" />
+                        <span class="done-{{todo.done}}">{{todo.text}}</span>
+                    </div>
+                    <input class="edit" type="text" ng-model="todo.text" ng-keyup="editOnEnter($event, todo)" />
+                </li>
+            </ul>
+        </section>
+
+        <footer style="display: block;">
+            <div class="todo-count">{{remaining()}} of {{todos.length}} remaining</div>
+            <a id="clear-completed" ng-click="clear()" ng-show="hasDone()">
+                Clear <span>{{(todos.length - remaining())}} {{itemText()}}</span>.
+            </a>
+        </footer>
+    </div>
+</body>
+
+</html>
