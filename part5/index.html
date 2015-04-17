@@ -25,43 +25,24 @@
     <div id="todoapp" ng-controller="TodoCtrl">
         <header>
             <h1>Todos by Angular.js</h1>
-            <input id="new-todo" type="text" size="30" placeholder="Do I need to do?" />
+            <input id="new-todo" type="text" size="30" placeholder="Do I need to do?"
+                ng-model="todoText" on-enter="addTodo(todoText)"/>
         </header>
 
         <section id="main" style="display: block;">
-            <div>
-                <input id="toggle-all" type="checkbox"/>
+            <div ng-show="isTodo()">
+                <input id="toggle-all" type="checkbox" ng-model="markAll" ng-click="toggleMarkAll()"/>
                 <label for="toggle-all">Mark all as complete</label>
             </div>
             <ul id="todo-list" class="unstyled">
-                <li>
-                    <div class="view">
-                        <input type="checkbox" />
-                        <span class="done-">todo text</span>
-                    </div>
-                    <input class="edit" type="text" value="todo text" />
-                </li>
-                <li>
-                    <div class="view">
-                        <input type="checkbox" checked="checked" />
-                        <span class="done-true">done text</span>
-                    </div>
-                    <input class="edit" type="text" value="done text" />
-                </li>
-                <li class="editing">
-                    <div class="view">
-                        <input type="checkbox" />
-                        <span class="done-">modify text</span>
-                    </div>
-                    <input class="edit" type="text" value="modify text" />
-                </li>
+                <todo-item ng-repeat="todo in todos" model="todo"></todo-item>
             </ul>
         </section>
 
         <footer style="display: block;">
-            <div class="todo-count">0 of 0 remaining</div>
-            <a id="clear-completed">
-                Clear <span>0 item</span>.
+            <div class="todo-count">{{remaining()}} of {{todos.length}} remaining</div>
+            <a id="clear-completed" ng-show="hasDone()" ng-click="clear()">
+                Clear <span>{{(todos.length - remaining()) | addItemText}}</span>.
             </a>
         </footer>
     </div>

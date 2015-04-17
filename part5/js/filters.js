@@ -4,6 +4,18 @@
     *
     */
     function addItemText () {
+        return function (num) {
+            if (!angular.isNumber(num)) {
+                return num;
+            }
+
+            var itemText = 'item';
+            if (num > 1) {
+                itemText += 's';
+            }
+
+            return num + ' ' + itemText;
+        };
     }
     /**
     *

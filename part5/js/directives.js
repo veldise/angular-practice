@@ -22,20 +22,43 @@
     */
     function todoItem (Todos) {
         var template = [
-            '<li>',
+            '<li ng-dblclick="toggleEditMode()" ng-class="{ editing: isEditing }">',
                 '<div class="view">',
-                    '<input type="checkbox"/>',
-                    '<span class="done-"></span>',
-                    '<button type="button">delete</button>',
+                    '<input type="checkbox" ng-model="todo.done"/>',
+                    '<span class="done-{{todo.done}}" >{{todo.text}}</span>',
+                    '<button type="button" ng-click="remove(todo)">delete</button>',
                 '</div>',
-                '<input class="edit" type="text"/>',
+                '<input class="edit" type="text" ng-model="todo.text"',
+                    'on-enter="update(todo)"/>',
             '</li>'
         ].join('\n');
 
         var link = function (scope, element) {
+            /**
+            *
+            */
+            scope.toggleEditMode = function() {
+                scope.isEditing = !scope.isEditing;
+            };
+            scope.update = function(todo) {
+                if (todo.text) {
+                    scope.toggleEditMode();
+                    Todos.update(todo);
+                }
+            };
+            scope.remove = function (todo) {
+                Todos.remove(todo);
+            };
         };
 
         return {
+            restrict: 'E',
+            template: template,
+            replace: true,
+            scope: {
+                todo: '=model'
+            },
+            link: link
         };
     }
     todoItem.$inject = ['Todos'];
