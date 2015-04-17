@@ -22,14 +22,13 @@
     */
     function todoItem (Todos) {
         var template = [
-            '<li ng-dblclick="toggleEditMode()">',
-                '<div class="view" ng-keyup="editTodo($event)">',
-                    '<input type="checkbox" ng-model="todo.done"/>',
-                    '<span class="done-{{todo.done}}" >{{todo.text}}</span>',
-                    '<button type="button" ng-click="remove(todo)">del</button>',
+            '<li>',
+                '<div class="view">',
+                    '<input type="checkbox"/>',
+                    '<span class="done-"></span>',
+                    '<button type="button">delete</button>',
                 '</div>',
-                '<input class="edit" type="text" ng-model="todo.text"',
-                'on-enter="editOnEnter(todo)"/>',
+                '<input class="edit" type="text"/>',
             '</li>'
         ].join('\n');
 
